@@ -1,0 +1,33 @@
+.button {
+   display: inline-block;
+   border: 1px solid transparent;
+   border-radius: var(--radius-value);
+   padding: 9px 30px;
+   text-align: center;
+   color: var(--color-white);
+   background: var(--orange-gradient);
+   transition: background 0.2s ease-out;
+
+   &--without-filling {
+      border: 1px solid currentColor;
+      color: var(--color-primary);
+      background: transparent;
+   }
+
+   &--transparency {
+      $color-primary: #fb9600;
+
+      background: none;
+      background-color: rgba($color-primary, 0.65);
+   }
+}
+
+.burger {
+   --burger-width: 20px;
+   --burger-height: 14px;
+   --burger-color: var(--color-black);
+
+   margin-left: 20px;
+
+   @include burger;
+}

@@ -1,0 +1,44 @@
+:root {
+   // ==!> Colors <!==
+   --color-black: #000;
+   --color-white: #fff;
+   --color-text: #3e3f43;
+   --color-primary: #fb9600;
+   --color-pearl: #fcedd8;
+   --color-yellow: #fbc400;
+   --color-gray: #808080;
+   --color-pink: #fbdbb2;
+   --color-blue: #afcaff;
+   --color-green: #6fcf97;
+   --color-light-yellow: #ffeb72;
+
+   // ==!> BG Gradients <!==
+   --light-yellow-gradient: linear-gradient(180deg, #fef4b8 0%, #fef4be 48.96%, #fff 100%);
+   --light-blue-gradient: linear-gradient(180deg, #e2e9f3 0%, #e2e9f3 52.6%, #fff 100%);
+   --orange-gradient: linear-gradient(94.37deg, #fbc400 2.72%, #fb9600 100%);
+
+   // offsets
+   --content-offset: 20px;
+
+   // most commonly used border radius
+   --radius-value: 25px;
+}
+
+// font size properties
+$font-large: 36px;
+$font-xx-middle: 32px;
+$font-x-middle: 30px;
+$font-middle: 20px;
+$font-small: 18px;
+$font-x-small: 16px;
+$font-xx-small: 14px;
+$font-xxx-small: 12px;
+
+// offsets
+$offset-large: 100px;
+$offset-xx-middle: 75px;
+$offset-x-middle: 50px;
+$offset-middle: 40px;
+$offset-small: 30px;
+$offset-x-small: 20px;
+$offset-xx-small: 15px;

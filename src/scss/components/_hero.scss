@@ -1,0 +1,107 @@
+.hero {
+   &__inner {
+      display: flex;
+      align-items: flex-start;
+   }
+
+   &__left {
+      flex: 2 1 560px;
+      margin-right: 10px;
+      max-width: 560px;
+   }
+
+   &__right {
+      flex: 1 1 auto;
+   }
+
+   &__title {
+      margin-bottom: 28px;
+      font-weight: 700;
+      line-height: 120%;
+      text-transform: capitalize;
+
+      @include responsive(font-size, 65px, 38px, 1440px, 1024px);
+      @include responsive(font-size, 38px, $font-x-middle, 768px, 320px);
+   }
+
+   &__text {
+      margin-top: 0;
+      margin-bottom: 38px;
+
+      @extend %font-size-middle;
+   }
+
+   &__button {
+      padding-right: 70px;
+      padding-left: 70px;
+   }
+
+   &__good-list {
+      counter-reset: counter;
+      display: flex;
+      align-items: flex-end;
+      margin: -15px;
+   }
+
+   &__good-number {
+      display: inline-block;
+      margin-bottom: 2px;
+
+      &::before {
+         counter-increment: counter;
+         content: "0" counter(counter) ".";
+         font-weight: 700;
+         font-size: 39px;
+         line-height: normal;
+      }
+   }
+
+   &__good {
+      margin: 15px;
+
+      &-title {
+         @extend %font-size-middle;
+      }
+   }
+
+   @include tablet {
+      &__inner {
+         flex-direction: column;
+      }
+
+      &__left {
+         flex-basis: auto;
+         margin-bottom: $offset-small;
+      }
+
+      &__good-list {
+         flex-wrap: wrap;
+      }
+
+      &__good-item {
+         flex: 0 1 33.333%;
+      }
+   }
+
+   @include mobileL {
+      &__good-list {
+         align-items: stretch;
+         margin: -10px;
+      }
+
+      &__good-item {
+         flex: 0 1 50%;
+      }
+
+      &__good {
+         margin: 10px;
+         max-width: initial;
+      }
+   }
+
+   @media (max-width: 480px) {
+      &__good-item {
+         flex: 0 1 100%;
+      }
+   }
+}
