@@ -20,7 +20,13 @@ const bestSlider = new Swiper(".best__slider", {
       bulletActiveClass: "best__slider-pagination-bullet--active",
       clickable: true,
       renderBullet: function (index, className) {
-         return '<button class="' + className + ' btn-reset"></button>';
+         return (
+            '<button aria-label="Go to slide ' +
+            (index + 1) +
+            '" class="' +
+            className +
+            ' btn-reset"></button>'
+         );
       },
    },
 
@@ -130,6 +136,7 @@ const reviewsSlider = new Swiper(".reviews__slider", {
    speed: 500,
    slidesPerView: 1,
    spaceBetween: 20,
+   simulateTouch: false,
    wrapperClass: "reviews__slider-wrapper",
    slideClass: "reviews__slide",
    slideActiveClass: "reviews__slide--active",
@@ -169,7 +176,13 @@ const salesSlider = new Swiper(".sales__slider", {
       bulletActiveClass: "sales__slider-pagination-bullet--active",
       clickable: true,
       renderBullet: function (index, className) {
-         return '<button class="' + className + ' btn-reset"></button>';
+         return (
+            '<button aria-label="Go to slide ' +
+            (index + 1) +
+            '" class="' +
+            className +
+            ' btn-reset"></button>'
+         );
       },
    },
 

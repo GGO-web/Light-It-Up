@@ -408,7 +408,6 @@ template {
 
 .swiper-container-css-mode > .swiper-wrapper {
   overflow: auto;
-  scrollbar-width: none;
   -ms-overflow-style: none; }
 
 .swiper-container-css-mode > .swiper-wrapper::-webkit-scrollbar {
@@ -843,7 +842,6 @@ button.swiper-pagination-bullet {
   /* Not required for horizontal scroll to trigger */
   max-height: 100%;
   /* Needed for vertical scroll to trigger */
-  scrollbar-width: none;
   -ms-overflow-style: none; }
 
 .simplebar-content-wrapper::-webkit-scrollbar,
@@ -979,5 +977,4 @@ button.swiper-pagination-bullet {
   left: 0;
   visibility: hidden;
   overflow-y: scroll;
-  scrollbar-width: none;
   -ms-overflow-style: none; }
