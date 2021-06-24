@@ -12,10 +12,16 @@ const bestSlider = new Swiper(".best__slider", {
    slideNextClass: "best__slide-next",
    slidePrevClass: "best__slide-prev",
    slideVisibleClass: "best__slide--visible",
+
    pagination: {
       el: ".best__slider-pagination",
       type: "bullets",
+      bulletClass: "best__slider-pagination-bullet",
+      bulletActiveClass: "best__slider-pagination-bullet--active",
       clickable: true,
+      renderBullet: function (index, className) {
+         return '<button class="' + className + ' btn-reset"></button>';
+      },
    },
 
    breakpoints: {

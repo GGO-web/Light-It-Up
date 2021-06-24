@@ -1,0 +1,36 @@
+.helps {
+   &__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+   }
+
+   &__content {
+      margin-right: $offset-small;
+   }
+
+   &__title {
+      margin-bottom: $offset-xx-small;
+      color: var(--color-primary);
+   }
+
+   &__text {
+      margin-bottom: $offset-x-small;
+   }
+
+   &__image {
+      flex: 0 1 50%;
+      margin-bottom: $offset-small;
+      border-radius: var(--radius-value);
+   }
+
+   @include mobileL {
+      &__inner {
+         flex-direction: column-reverse;
+      }
+
+      &__content {
+         margin-right: 0;
+      }
+   }
+}

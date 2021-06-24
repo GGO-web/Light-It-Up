@@ -1,0 +1,120 @@
+.footer {
+   &__inner {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: -$offset-small;
+      border-top: 1px solid var(--color-primary);
+
+      @include responsive(padding-top, 50px, 20px, 1440px, 320px);
+      @include responsive(padding-bottom, 50px, 20px, 1440px, 320px);
+   }
+
+   &__info {
+      display: flex;
+      flex-direction: column;
+      margin-right: $offset-x-small;
+      margin-bottom: $offset-small;
+   }
+
+   &__logo {
+      margin-bottom: $offset-xx-small;
+   }
+
+   &__phone, &__email {
+      display: inline-block;
+      margin-bottom: $offset-xx-small;
+      color: #8d8d8d;
+      transition: color 0.15s ease-out;
+
+      @extend %font-size-middle;
+
+      &:hover {
+         color: var(--color-black);
+      }
+   }
+
+   &__socials {
+      display: flex;
+      align-items: center;
+   }
+
+   &__social {
+      &:not(:last-child) {
+         margin-right: $offset-xx-small;
+      }
+
+      &:nth-of-type(1):hover .footer__social-icon {
+         fill: #4267b2;
+      }
+
+      &:nth-of-type(2):hover .footer__social-icon {
+         fill: #c3226e;
+      }
+
+      &:nth-of-type(3):hover .footer__social-icon {
+         fill: #cb2027;
+      }
+   }
+
+   &__social-icon {
+      width: 24px;
+      height: 24px;
+      fill: var(--color-black);
+      transition: fill 0.15s ease-out;
+   }
+
+   &__nav {
+      display: flex;
+      flex: 0 1 50%;
+      flex-wrap: wrap;
+      margin: -$offset-xx-small;
+      margin-bottom: $offset-small;
+      min-width: 450px;
+   }
+
+   &__content {
+      flex: 0 1 33.333%;
+      padding: $offset-xx-small;
+   }
+
+   &__content-title {
+      margin-top: 0;
+      margin-bottom: $offset-small;
+      font-weight: 600;
+
+      @include responsive(font-size, 25px, $font-middle, 1440px, 320px);
+   }
+
+   &__content-item {
+      &:not(:last-child) {
+         margin-bottom: $offset-xx-small;
+      }
+   }
+
+   &__content-link {
+      color: #8d8d8d;
+      transition: color 0.15s ease-out;
+
+      @extend %font-size-middle;
+
+      &:hover {
+         color: var(--color-black);
+      }
+   }
+
+   @include mobileL {
+      &__inner {
+         flex-direction: column;
+      }
+
+      &__nav {
+         min-width: 0;
+      }
+   }
+
+   @media (max-width: 480px) {
+      &__content {
+         flex: 0 1 50%;
+      }
+   }
+}

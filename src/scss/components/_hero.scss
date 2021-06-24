@@ -16,12 +16,10 @@
 
    &__title {
       margin-bottom: 28px;
-      font-weight: 700;
       line-height: 120%;
       text-transform: capitalize;
 
-      @include responsive(font-size, 65px, 38px, 1440px, 1024px);
-      @include responsive(font-size, 38px, $font-x-middle, 768px, 320px);
+      @include responsive(font-size, 60px, 28px, 1440px, 1024px);
    }
 
    &__text {
@@ -58,13 +56,14 @@
 
    &__good {
       margin: 15px;
+      text-align: left;
 
       &-title {
          @extend %font-size-middle;
       }
    }
 
-   @include tablet {
+   @media (max-width: 1200px) {
       &__inner {
          flex-direction: column;
       }
@@ -74,28 +73,26 @@
          margin-bottom: $offset-small;
       }
 
-      &__good-list {
-         flex-wrap: wrap;
-      }
-
       &__good-item {
          flex: 0 1 33.333%;
+      }
+
+      &__good {
+         margin: 10px;
+         min-width: 0;
+         max-width: initial;
       }
    }
 
    @include mobileL {
       &__good-list {
+         flex-wrap: wrap;
          align-items: stretch;
          margin: -10px;
       }
 
       &__good-item {
          flex: 0 1 50%;
-      }
-
-      &__good {
-         margin: 10px;
-         max-width: initial;
       }
    }
 

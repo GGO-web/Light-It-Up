@@ -1,0 +1,85 @@
+.sales {
+   &__inner {
+      display: flex;
+      align-items: flex-start;
+   }
+
+   &__new {
+      flex: 1 0 388px;
+      margin: 0;
+      margin-right: 30px;
+      border-radius: var(--radius-value);
+      padding: 30px;
+      box-shadow: 2px 0 14px rgba(0, 0, 0, 0.25);
+      background-color: #e2e9f3;
+   }
+
+   &__new-image {
+      display: block;
+      margin: 0 auto;
+      margin-bottom: 20px;
+      min-width: 150px;
+   }
+
+   &__new-caption {
+      line-height: 1;
+      text-align: center;
+
+      @include responsive(font-size, 64px, $font-xx-middle, 1440px, 320px);
+   }
+
+   &__slider {
+      display: flex;
+      flex: 1 1 100%;
+      flex-wrap: wrap;
+      overflow: hidden;
+   }
+
+   &__slider-wrapper {
+      display: flex;
+   }
+
+   &__slider-pagination {
+      display: flex;
+      justify-content: center;
+      margin-top: 25px;
+
+      &-bullet {
+         border-radius: 6px;
+         width: 32px;
+         height: 10px;
+         background-color: #e5e5e5;
+         transition: background-color 0.15s ease-out;
+
+         &:not(:last-child) {
+            margin-right: 10px;
+         }
+
+         &--active {
+            background-color: var(--color-primary);
+         }
+      }
+   }
+
+   &__good {
+      flex: 0 1 33.333%;
+      max-width: 100%;
+
+      &-title {
+         margin: 0 auto;
+         max-width: 200px;
+      }
+   }
+
+   @media (max-width: 1200px) {
+      &__inner {
+         flex-wrap: wrap;
+      }
+
+      &__new {
+         flex: 0 1 100%;
+         margin-right: 0;
+         margin-bottom: $offset-middle;
+      }
+   }
+}

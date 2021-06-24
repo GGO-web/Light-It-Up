@@ -21,6 +21,11 @@
    margin: 0;
 }
 
+.logo {
+   font-size: 32px;
+   line-height: 100%;
+}
+
 .--text-gradient {
    -webkit-text-fill-color: transparent;
    background: var(--orange-gradient);
@@ -64,6 +69,7 @@
    border-radius: var(--radius-value);
    min-width: 200px;
    max-width: 300px;
+   text-align: center;
 
    @include responsive(padding-top, 45px, 20px, 1440px, 1024px);
    @include responsive(padding-right, 32px, 15px, 1440px, 1024px);
@@ -73,8 +79,8 @@
    &__image {
       display: block;
       margin: 0 auto 20px;
-      min-width: 200px;
-      min-height: 200px;
+      height: auto;
+      min-width: 180px;
    }
 
    &__title {
@@ -84,6 +90,31 @@
    &__text {
       margin-top: 10px;
       font-size: $font-xx-small;
+   }
+
+   &__prices {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 20px;
+   }
+
+   &__old-price {
+      margin-right: 10px;
+      font-weight: 600;
+      font-size: $font-xx-small;
+      text-decoration: line-through;
+      color: #b6adad;
+   }
+
+   &__current-price {
+      font-weight: 700;
+      font-size: $font-x-small;
+      color: var(--color-primary);
+   }
+
+   &__button {
+      margin-top: 23px;
    }
 }
 
