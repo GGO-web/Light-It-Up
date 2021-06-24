@@ -1,33 +1,35 @@
 .simplebar-track.simplebar-vertical {
-   background: var(--color-blue);
+   border-radius: 25px;
    width: 10px;
-   border-radius: 25px;
-}
-.simplebar-track.simplebar-horizontal {
    background: var(--color-blue);
-   height: 3px;
+}
+
+.simplebar-track.simplebar-horizontal {
    border-radius: 25px;
+   height: 3px;
+   background: var(--color-blue);
 }
 
 .simplebar-content-wrapper {
    padding: 5px;
    padding-right: 30px;
 }
-.simplebar-scrollbar:before {
+
+.simplebar-scrollbar::before {
    left: 0;
    right: 0;
    top: 0;
    bottom: 0;
-   opacity: 1;
    background-color: var(--color-primary);
+   opacity: 1;
 }
 
 .simplebar-track.simplebar-vertical .simplebar-scrollbar::before,
 .simplebar-track.simplebar-horizontal .simplebar-scrollbar::before {
-	top: 0;
-	bottom: 0;
+   top: 0;
+   bottom: 0;
 }
 
 .simplebar-scrollbar.simplebar-visible::before {
-	opacity: 1;
+   opacity: 1;
 }

@@ -32,10 +32,9 @@
       transition: transform 0.4s ease-out;
 
       .good {
-         min-height: 588px;
          max-width: 100%;
 
-         @include responsive(min-height, 588, 480, 1440, 576);
+         @include responsive(min-height, 588px, 480px, 1440px, 576px);
       }
 
       &--active {

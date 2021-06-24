@@ -4,6 +4,7 @@ const reviewsSlider = new Swiper(".reviews__slider", {
    speed: 500,
    slidesPerView: 1,
    spaceBetween: 20,
+   simulateTouch: false,
    wrapperClass: "reviews__slider-wrapper",
    slideClass: "reviews__slide",
    slideActiveClass: "reviews__slide--active",
