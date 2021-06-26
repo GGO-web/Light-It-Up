@@ -66,8 +66,10 @@
    }
 
    &__feedback {
+      display: inline-block;
       margin-top: 0;
       margin-bottom: $offset-small;
+      font-style: normal;
       color: var(--color-text);
    }
 
@@ -76,6 +78,8 @@
       align-items: center;
       margin: 0;
       font-weight: 600;
+      line-height: 1;
+      color: var(--color-black);
 
       &-avatar {
          flex: 0 0 48px;
@@ -98,9 +102,8 @@
    }
 
    &__slider-button {
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      line-height: normal;
       transition: color 0.15s ease-out;
 
       &-icon {

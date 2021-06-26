@@ -63,11 +63,14 @@ address {
    font-style: normal;
 }
 
+button {
+   cursor: pointer;
+}
+
 .btn-reset {
    border: none;
    padding: 0;
    background: transparent;
-   cursor: pointer;
 }
 
 .js-focus-visible :focus:not(.focus-visible) {
@@ -80,6 +83,7 @@ address {
 
 .hide-scroll {
    overflow: hidden;
+   padding-right: var(--scrollbar-width);
 }
 
 .is-hidden {

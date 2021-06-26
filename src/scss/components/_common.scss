@@ -5,8 +5,8 @@
 
 // ==!> Most Common styles <!==
 .section {
-   @include responsive(padding-top, 50px, 20px, 1440px, 320px);
-   @include responsive(padding-bottom, 50px, 20px, 1440px, 320px);
+   @include responsive(padding-top, 50px, 30px, 1440px, 320px);
+   @include responsive(padding-bottom, 50px, 30px, 1440px, 320px);
 }
 
 .title {
@@ -34,6 +34,10 @@
 
 .search-form {
    position: relative;
+
+   &__label {
+      display: inline-block;
+   }
 
    &__input {
       border: 1px solid var(--color-black);
@@ -80,7 +84,7 @@
       display: block;
       margin: 0 auto 20px;
       height: auto;
-      min-width: 180px;
+      min-width: 150px;
    }
 
    &__title {

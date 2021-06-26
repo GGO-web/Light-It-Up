@@ -5,9 +5,9 @@
    }
 
    &__left {
-      flex: 2 1 560px;
+      flex: 2 1 580px;
       margin-right: 10px;
-      max-width: 560px;
+      max-width: 580px;
    }
 
    &__right {
@@ -36,9 +36,10 @@
 
    &__good-list {
       counter-reset: counter;
-      display: flex;
+      display: grid;
       align-items: flex-end;
-      margin: -15px;
+      grid-gap: 30px;
+      grid-template-columns: repeat(3, 1fr);
    }
 
    &__good-number {
@@ -55,7 +56,6 @@
    }
 
    &__good {
-      margin: 15px;
       text-align: left;
 
       &-title {
@@ -73,12 +73,7 @@
          margin-bottom: $offset-small;
       }
 
-      &__good-item {
-         flex: 0 1 33.333%;
-      }
-
       &__good {
-         margin: 10px;
          min-width: 0;
          max-width: initial;
       }
@@ -86,19 +81,15 @@
 
    @include mobileL {
       &__good-list {
-         flex-wrap: wrap;
          align-items: stretch;
-         margin: -10px;
-      }
-
-      &__good-item {
-         flex: 0 1 50%;
+         grid-gap: 20px;
+         grid-template-columns: repeat(2, 1fr);
       }
    }
 
    @media (max-width: 480px) {
-      &__good-item {
-         flex: 0 1 100%;
+      &__good-list {
+         grid-template-columns: 1fr;
       }
    }
 }

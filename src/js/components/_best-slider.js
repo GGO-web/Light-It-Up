@@ -42,8 +42,10 @@ const bestSlider = new Swiper(".best__slider", {
       480: {
          slidesPerView: 2,
          activeIndex: 2,
+         autoHeight: false,
       },
       0: {
+         autoHeight: true,
          slidesPerView: 1,
          activeIndex: 1,
       },
