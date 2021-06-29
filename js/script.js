@@ -212,5 +212,4 @@ salesSliderElement.addEventListener("mouseleave", function () {
    salesSlider.autoplay.start();
 });
 
-
-
+AOS.init();
