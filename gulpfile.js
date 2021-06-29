@@ -57,7 +57,8 @@ const styles = () => {
 };
 
 const scripts = () => {
-   src("./src/js/vendor/**.js")
+   // copy the external scripts from the vendor or node_modules folders
+   src(["./node_modules/aos/dist/aos.js", "./src/js/vendor/**.js"])
       .pipe(concat("vendor.js"))
       .pipe(uglify().on("error", notify.onError()))
       .pipe(
@@ -67,7 +68,8 @@ const scripts = () => {
       )
       .pipe(dest("./app/js/"));
 
-   src(["./src/js/variables.js", "./src/js/components/**.js", "./src/js/script.js"])
+   // copy other internal scripts to script.min.js
+   src(["./src/js/components/**.js", "./src/js/script.js"])
       .pipe(concat("script.js"))
       .pipe(uglify())
       .pipe(
@@ -77,6 +79,7 @@ const scripts = () => {
       )
       .pipe(dest("./app/js"));
 
+   // copy other internal scripts to script.js
    return src(["./src/js/components/**.js", "./src/js/*.js"])
       .pipe(gulpif(!buildReady, sourcemaps.init()))
       .pipe(concat("script.js"))

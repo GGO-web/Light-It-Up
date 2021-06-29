@@ -40,6 +40,7 @@
     "stylelint-scss": "^3.19.0"
   },
   "dependencies": {
+    "aos": "^2.3.4",
     "just-validate": "^1.5.0"
   }
 }
