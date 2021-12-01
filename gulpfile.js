@@ -4,7 +4,7 @@ const cleanCSS = require("gulp-clean-css");
 const uglify = require("gulp-uglify-es").default;
 const del = require("del");
 const browserSync = require("browser-sync").create();
-const sass = require("gulp-sass");
+const sass = require("gulp-sass")(require("sass"));
 const svgSprite = require("gulp-svg-sprite");
 const fileInclude = require("gulp-file-include");
 const sourcemaps = require("gulp-sourcemaps");
@@ -16,6 +16,12 @@ const image = require("gulp-image");
 const concat = require("gulp-concat");
 const ttf2woff = require("gulp-ttf2woff");
 const ttf2woff2 = require("gulp-ttf2woff2");
+const pug = require("gulp-pug");
+const webp = require('gulp-webp');
+const webpInHTML = require("gulp-webp-in-html");
+const cheerio = require('gulp-cheerio');
+const cleanSvg = require('gulp-cheerio-clean-svg');
+const replace = require('gulp-replace');
 
 let buildReady = false;
 
@@ -34,6 +40,16 @@ const svgSprites = () => {
             },
          })
       )
+      .pipe(cheerio(cleanSvg({
+         removeSketchType: true,
+         removeEmptyGroup: true,
+         removeEmptyDefs: true,
+         removeEmptyLines: true,
+         removeComments: true,
+         tags: ["title", "desc"],
+         attributes: ["fill", "stroke"]
+      })))
+      .pipe(replace("&gt;", ">"))
       .pipe(dest("./app/img"));
 };
 
@@ -58,7 +74,7 @@ const styles = () => {
 
 const scripts = () => {
    // copy the external scripts from the vendor or node_modules folders
-   src(["./node_modules/aos/dist/aos.js", "./src/js/vendor/**.js"])
+   src(["./src/js/vendor/**.js", "./node_modules/aos/dist/aos.js"])
       .pipe(concat("vendor.js"))
       .pipe(uglify().on("error", notify.onError()))
       .pipe(
@@ -107,7 +123,7 @@ const resources = () => {
 const images = () => {
    return src(["./src/img/**/*.{webp,jpg,png,jpeg,svg,ico}"])
       .pipe(gulpif(buildReady, image()))
-      .pipe(dest("./app/img"));
+      .pipe(dest("./app/img"))
 };
 
 const htmlInclude = () => {
@@ -118,6 +134,15 @@ const htmlInclude = () => {
             basepath: "@file",
          })
       )
+      .pipe(dest("./app"))
+      .pipe(browserSync.stream());
+};
+
+const pugCompile = () => {
+   return src(["./src/*.pug"])
+      .pipe(pug({
+         pretty: true
+      }))
       .pipe(dest("./app"))
       .pipe(browserSync.stream());
 };
@@ -133,6 +158,8 @@ const watchFiles = () => {
    watch("./src/js/**/*.js", scripts);
    watch("./src/parts/*.html", htmlInclude);
    watch("./src/*.html", htmlInclude);
+   watch("./src/parts/**/*.pug", pugCompile);
+   watch("./src/*.pug", pugCompile);
    watch("./src/resources/**", resources);
    watch("./src/img/*.{jpg,jpeg,png,svg,ico}", images);
    watch("./src/img/sprite/**.svg", svgSprite);
@@ -148,10 +175,22 @@ const htmlMinify = () => {
       .pipe(dest("app"));
 };
 
+const webpCompile = () => {
+   return src(["./app/*.html"])
+      .pipe(webpInHTML())
+      .pipe(dest("./app"))
+      .pipe(src(["./app/img/**/*.{jpg,png,jpeg}"]))
+      .pipe(webp({
+         quality: 70,
+      }))
+      .pipe(gulpif(buildReady, image()))
+      .pipe(dest("./app/img"))
+}
+
 const toRelease = (done) => {
    buildReady = true;
    done();
 };
 
-exports.default = series(clean, htmlInclude, scripts, styles, fonts, resources, images, svgSprites, watchFiles);
-exports.build = series(toRelease, clean, htmlInclude, scripts, styles, fonts, resources, images, svgSprites, htmlMinify);
+exports.default = series(clean, htmlInclude, pugCompile, scripts, styles, fonts, resources, images, svgSprites, watchFiles);
+exports.build = series(toRelease, clean, htmlInclude, pugCompile, scripts, styles, fonts, resources, images, svgSprites, htmlMinify);
